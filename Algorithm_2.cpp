@@ -58,15 +58,18 @@ void assignCoordinates()
 	}
 }
 
-int main(int argc, char **argv)
+void updateRoutine(void)
 {
-    //Read, build and assign coordinates to tree nodes according to Algorithm 2
+	//Read, build and assign coordinates to tree nodes according to Algorithm 2
 	readTree();
 	buildTree();
-	printTree();
 	assignCoordinates();
-	printTree();
+	setSpacingParameters();
+    drawTree();
+}
 
+int main(int argc, char **argv)
+{
 	//GLUT setup
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
@@ -74,12 +77,12 @@ int main(int argc, char **argv)
 	glutInitWindowSize(900,600);
 	glutCreateWindow("Algorithm 2");
 
-	//Spacing Parameter set and reassigning tree node coordinates
-	setSpacingParameters();
-
-	//Display and initialize 2D setup
-	glutDisplayFunc(drawTree);
+	binarytreeflag = true;
+	
+	//Display tree and window
 	init2D();
+	glutDisplayFunc(updateRoutine);
+	glutIdleFunc(updateRoutine);
 	glutMainLoop();
 
 	return 0;	

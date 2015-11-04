@@ -1,0 +1,36 @@
+<title>Tidy Drawing Trees - Algorithm 2</title>
+<head><h1>Algorithm - 2 (Knuth's algorithm)</h1></head>
+<body>
+
+<p>This algorithm ensures that aesthetically, the left node stays left, and the right node stays right, (relative to the parent) 
+and therefore is created for binary trees. It also follows the first aesthetic specification, that all nodes of the same level lie on the same line [height] in the illustration, provided the correct height of each node is contained within the structure.</p>
+
+<b>Methodology</b>
+
+<p>The coordinate assignment involved follows inorder traversal of the tree. This is done so that the left edge can be reached first and x coordinates can be assigned based on this reference. A variable keeps track of the next number in the inorder sequence 
+[left child, node, and then right child].</p>
+
+<p>Further, each node also has a status field in its structure, which is used to check which node 
+is being numbered at a given instance.</p>
+
+The status field is encoded as:
+<ul>
+<li><i>First Visit</i>, before the node has actually been visited, as status = 1,</li>
+<li><i>Left Visit</i>, when the left child is being numbered, as status = 2</li>
+<li><i>Right Visit</i>, when the right child is being numbered, as status = 3</li>
+</ul>
+
+<p><b>The algorithm assumes</b> that each node on the binary tree, has been given a correct height.
+This will be relied upon to ensure that the drawing abides by the first aesthetic specification.</p>
+
+<b>Sample Output</b> 
+<br></br>
+<img src="Algo2.png" align="middle"></img>
+<br></br>
+<b>Analysis</b>
+<p>Even though the left node stays left and the right node stays right of the parent, strictly following the aesthetic requirement  may cause the resultant tree may be too wide. There is no limit specified for the right edge [max x coordinate], and the 
+tree will not only waste space, but also not end up quite as tidy as one would prefer it to be.</p>
+<p>This can be clearly seen in the above screen, where the root node is awkwardly positioned very far from the left of the tree. Later, we make a comparison with Algorithm 3 and analyze the relative wastage of space.</p>
+<p>The complexity of coordinate assignment, remains the same for Algorithm 1. Although slightly more complex, the algorithm visits each node only <b>twice</b> thus giving us a <b>&theta;(n)</b> bound yet again</p>
+</body>
+
