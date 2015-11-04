@@ -286,7 +286,7 @@ void updateRoutine(void)
 	//Read, build and assign coordinates to tree nodes according to Algorithm 2
 	readTree();
 	buildTree();
-	assignCoordinates();
+	assignCoordinatesModified();
 	setSpacingParameters();
     drawTree();
 }
