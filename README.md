@@ -12,3 +12,4 @@ Instructions
 
 Note : 
 You could play the piano and observe the changing visualization in realtime as well. Try running the visualizations of all three algorithms at the same time, and compare!
+![image](https://user-images.githubusercontent.com/7645599/112758883-246d0b00-900e-11eb-9bb3-0581de3a1685.png)
